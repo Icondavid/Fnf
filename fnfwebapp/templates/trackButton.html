@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} FoodnFries {% endblock %}
+{% block content %}
+
+
+
+<div id="map"></div>
+<button id="trackButton">Track My Location</button>
+
+
+
+
+
+
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+
+var map = L.map('map').setView([0, 0], 2); // Initialize map with default center and zoom level
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+var marker = L.marker([0, 0]).addTo(map); // Initialize marker at default position
+
+// Function to update marker position
+function updateMarker(latlng) {
+    marker.setLatLng(latlng);
+}
+
+// Function to track user's location
+function trackLocation() {
+    if ("geolocation" in navigator) {
+        navigator.geolocation.watchPosition(function(position) {
+            var latlng = [position.coords.latitude, position.coords.longitude];
+            updateMarker(latlng);
+            map.setView(latlng, 15); // Set map view to user's location with a zoom level of 15
+        });
+    } else {
+        alert("Geolocation is not supported by your browser.");
+    }
+}
+
+// Event listener for track button
+document.getElementById('trackButton').addEventListener('click', trackLocation);
+
+</script>
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+

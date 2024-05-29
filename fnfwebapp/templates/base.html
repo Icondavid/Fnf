@@ -1,0 +1,294 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Videograph Template">
+    <meta name="keywords" content="Videograph, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        Foodnfries
+
+    </title>
+    <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/img/favicons/apple-touch-icon.png' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'assets/img/favicons/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/img/favicons/favicon-16x16.png' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/favicons/favicon.ico' %}">
+    <link rel="manifest" href="{% static 'assets/img/favicons/manifest.json' %}">
+    <meta name="msapplication-TileImage" content="{% static 'assets/img/favicons/mstile-150x150.png' %}">
+    <meta name="theme-color" content="#ffffff">
+    <link href="{% static 'assets/css/theme.css' %}" rel="stylesheet" />
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="">
+    <link href="{% static 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' %}" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'cssclients/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'cssclients/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'cssclients/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'cssclients/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'cssclients/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'cssclients/style.css' %}" type="text/css">
+
+</head>
+
+
+
+
+<body class="sub_page">
+
+    <main class="main" id="top">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top"
+            data-navbar-on-scroll="data-navbar-on-scroll">
+            <div class="container" style="margin-left: 80px;">
+                <a class="navbar-brand d-inline-flex" href="{% url 'fnfwebapp:home' %}">
+                    <img class="d-inline-block" src="{% static 'fnfimages/fnfnf.jpg' %}" style="width: 20%;"
+                        alt="logo" />
+                    <span class="text-1000 fs-3 fw-bold ms-2 text-gradient">foodnfries</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon">
+                    </span></button>
+                <div class="collapse navbar-collapse border-top border-lg-0 my-2 mt-lg-0" id="navbarSupportedContent">
+
+                    <div class="mx-auto pt-5 pt-lg-0 d-block d-lg-none d-xl-block">
+                        <p class="mb-0 fw-bold text-lg-center"> <i
+                                class="fas fa-map-marker-alt text-warning mx-2"></i><span class="fw-normal">
+                            </span><span>Satisfying Homely Delight!</span></p>
+                    </div>
+
+                    <form class="d-flex mt-4 mt-lg-0 ms-lg-auto ms-x l-0" method="post"
+                        action="{% url 'fnfwebapp:searchFood' %}">
+                        {% csrf_token %}
+                        <div class="input-group-icon pe-2"><i class="fas fa-search input-box-icon text-primary"></i>
+                            <input class="form-control border-1 input-box bg-100" type="search"
+                                placeholder="Search Food" name="search" aria-label="Search" />
+                        </div>
+                    </form>
+                </div>
+                <div class="head-icons d-flex" style="margin-left: 40px; margin-top: -15px;">
+                    <a class="shopping-cart" type="button" role="button" href="{% url 'basket:basket_summary' %} "
+                        class="btn btn-outline-secondary border-0 basket-btn">
+                        <!-- <div class="d-inline-flex">0</div> -->
+                        {% with total_qty=basket|length %}
+                        <div id="basket-qty" class="d-inline-flex">
+                            {% if total_qty > 0 %}
+                            {{ total_qty }}
+                            {% else %}
+                                
+                            {% endif %}
+                        </div>
+                        {% endwith %}
+                        <div class="text-warning">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+                                <path
+                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                            </svg>
+                        </div>
+                        
+                    </a>
+                </div>
+            </div>
+            <div>
+                <a href="{% url 'fnfwebapp:signup' %}" style="margin-right: 100px;">
+                    <button class="btn btn-warning shadow-white text-white" type="submit"> <i
+                            class="fas fa-user me-2"></i>Sign up</button>
+                </a>
+            </div>
+            <div>
+                <a href="{% url 'fnfwebapp:login' %}" style="margin-right: 100px;">
+                    <button class="btn btn-white shadow-warning text-warning" type="submit"> <i
+                            class="fas fa-user me-2"></i>Login</button>
+                </a>
+            </div>
+        </nav>
+
+        {% block content %}
+
+        {% endblock %}
+
+
+        <!-- footer section -->
+        <footer class="footer_section mt-2" style="background-color: #ffaf01;"">
+            <div class=" container">
+            <div class="row">
+                <div class="col-md-4 footer-col">
+                    <div class="footer_contact">
+                        <h4 style="font-weight: bolder; color: white;">
+                            Contact Us
+                        </h4>
+                        <div class="contact_link_box">
+                            <a>
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <span>
+                                    plot 751 Aminu Kano Crescent, <br> Wuse 2, Abuja.
+                                </span>
+                            </a>
+                            <a>
+                                <i class="fa fa-phone fa-brands fa-whatsapp" aria-hidden="true"></i>
+                                <span>
+                                    or Call: 09072288043
+                                </span>
+                            </a>
+                            <a href="foodnfries@gmail.com" target="_blank">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                <span>
+                                    foodnfries@gmail.com
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 footer-col">
+                    <div class="footer_detail">
+                        <a href="" class="footer-logo">
+                            FoodnFries
+                        </a>
+                        <p style="color: white;">
+                            Your most preferred choice in Satisfying your homely delicacies and delights.... <br> <br>
+                            <span style="font-weight: bolder;font-style: italic; ">TASTE IT, WANT MORE!</span></p>
+                        <div class="footer_social">
+                            <a href="">
+                                <i class="fa fa-facebook" aria-hidden="true" style="color: #FFB30E"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-twitter" aria-hidden="true" style="color: #FFB30E"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-linkedin" aria-hidden="true" style="color: #FFB30E"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-instagram" aria-hidden="true" style="color: #FFB30E"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-pinterest" aria-hidden="true" style="color: #FFB30E"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 footer-col">
+                    <h4 style="font-weight: bolder; color: white;">
+                        Opening Hours
+                    </h4>
+                    <p style="color: white;">
+                        Everyday
+                    </p>
+                    <p style="color: white;">
+                        8.30 am -9.00 pm
+                    </p>
+                </div>
+            </div>
+            <div class="footer-info">
+                <p>
+                    &copy; <span id="displayYear"></span> All Rights Reserved By
+                    <a href="http://127.0.0.1:8000/foodnfries" target="">FoodnFries</a>
+                </p>
+            </div>
+            </div>
+        </footer>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&amp;display=swap"
+            rel="stylesheet">
+    </main>
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="{% static 'assets/js/jquery-1.11.3.min.js'%}"></script>
+    <!-- bootstrap -->
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js'%}"></script>
+    <!-- count down -->
+    <script src="{% static 'assets/js/jquery.countdown.js'%}"></script>
+    <!-- isotope -->
+    <script src="{% static 'assets/js/jquery.isotope-3.0.6.min.js'%}"></script>
+    <!-- waypoints -->
+    <script src="{% static 'assets/js/waypoints.js'%}"></script>
+    <!-- owl carousel -->
+    <script src="{% static 'assets/js/owl.carousel.min.js'%}"></script>
+    <!-- magnific popup -->
+    <script src="{% static 'assets/js/jquery.magnific-popup.min.js'%}"></script>
+    <!-- mean menu -->
+    <script src="{% static 'assets/js/jquery.meanmenu.min.js'%}"></script>
+    <!-- sticker js -->
+    <script src="{% static 'assets/js/sticker.js'%}"></script>
+    <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+    <!-- nice select -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+    <!-- custom js -->
+    <!-- main js -->
+    <script src="{% static 'assets/js/main.js'%}"></script>
+    <script src="{% static 'js/custom.js'%}"></script>
+
+    <script src="{% static 'js/bootstrap.js'%}"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="../static/form/js/main.js"></script>
+
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <!-- popper js -->
+    <script src="{% static 'https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js' %}"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+        </script>
+    <!-- bootstrap js -->
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <!-- owl slider -->
+    <script src="{% static 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js' %}">
+    </script>
+    <!-- isotope js -->
+    <script src="{% static 'https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js' %}"></script>
+    <!-- nice select -->
+    <script
+        src="{% static 'https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js' %}"></script>
+    <!-- custom js -->
+    <script src="{% static 'js/custom.js' %}"></script>
+    <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+    </script>
+    <script src="{% static 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js' %}"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <!-- End Google Map -->
+    <script src="{% static 'jsclients/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'jsclients/bootstrap.min.js' %}"></script>
+    <script src="{% static 'jsclients/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'jsclients/mixitup.min.js' %}"></script>
+    <script src="{% static 'jsclients/masonry.pkgd.min.js' %}"></script>
+    <script src="{% static 'jsclients/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'jsclients/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'jsclients/main.js' %}"></script>
+
+
+    <script src="{% static 'vendors/@popperjs/popper.min.js' %}"></script>
+    <script src="{% static 'vendors/bootstrap/bootstrap.min.js' %}"></script>
+    <script src="{% static 'vendors/is/is.min.js' %}"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="{% static 'assets/js/theme.js' %}"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+
+    <script src="{% static 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js' %}"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <!-- <script src="{% static 'vendors/fontawesome/all.min.js' %}"></script> -->
+</body>
+
+</html>

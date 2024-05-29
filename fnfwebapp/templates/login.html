@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} FoodnFries {% endblock %}
+{% block content %}
+
+
+<section class="col-md-4 offset-md-4 p-4 mt-2 shadow">
+    <h2 class="text-center"
+        style="font-size: 70px; color: #ffaf01;; font-weight: 900; font-family: 'Playfair Display', serif; margin-top: 50px;">
+        Login</h2>
+    <br><br>
+    <form class="form" method="POST">
+        {% if messages %}
+        {% for mes in messages%}
+        <div class="alert {{ mes.tags }}">{{ mes }}</div>
+        {% endfor %}
+        {% endif %}
+        <div class="form-group">
+            <label style="font-size: 20px; color: black;">Username</label>
+            <input type="text" name="username" class="form-control" id="email" placeholder="Username" required">
+            <i class="ti-user"></i>
+        </div>
+        <div class="form-group">
+            <label style="font-size: 20px; color: black;">Password</label>
+            <input type="password" class="form-control" name="password" id="password" value="" placeholder="Password" required >
+            <img src="{% static 'assets/img/gallery/eye-close.png' %}" alt="" id="eye-icon" style="width: 20px; position: absolute; margin-left: 370px;margin-top: -25px;">
+<br>
+        </div>
+        <div class="clearfix add_bottom_30">
+            <div class="checkboxes float-left">
+                <label class="container_check" style="color: #F17228;">Remember me
+                    <input type="checkbox" style="color: blue;">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <div class="checkboxes float-left" style="margin-left: 80px;">
+            </div>
+        </div>
+        
+        <input type="submit" name="login" value="login" class="btn btn-warning btn-block btn_1 rounded full-width">
+        
+        <div class="float-right mt-3"><a id="forgot" href="{% url 'fnfwebapp:login' %}">Forgot Password?</a></div>
+    <br> <br>
+        <div class="text-center add_top_10" style="color: #6e6c67;; margin-left: 150px;">Don't have an account?
+            <strong><a style="color:#F17228" href="{% url 'fnfwebapp:signup' %}">Signup!</a></strong></div>
+        {% csrf_token %}
+    </form>
+</section>
+<br><br><br><br><br><br><br><br>
+
+
+
+
+
+{% endblock %}

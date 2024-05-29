@@ -1,0 +1,140 @@
+
+.box1{
+    background-color: white;
+    box-shadow: 10px 3px 25px black;
+    width: 20%;
+    position: relative;
+    height: 360px;
+    border-radius: 5px;
+    /* padding-bottom: 60%; */
+        
+}
+.box2{
+    background-color: white;
+    box-shadow: 10px 3px 25px black;
+    width: 20%;
+    position: relative;
+    height: 360px;
+    border-radius: 5px;
+    margin-left: 15%;
+    
+}
+.box3{
+    background-color: white;
+    box-shadow: 10px 3px 25px black;
+    width: 20%;
+    position: relative;
+    height: 360px;
+    border-radius: 5px;
+    margin-left: 15%;
+    
+}
+
+.row{
+    margin-top: 10%;
+}
+
+.container-banner p, h3{ 
+    text-align: center;
+}
+
+.icon{
+    margin-top: 5%;
+    background-color: white;
+    height: 29px;
+    width: 15%;
+    border-radius: 50%;
+    text-align: center;
+    color: blue
+}
+
+.box1 img{
+    position: absolute;
+    top: -12%;
+    left: 20%;
+    width: 135%;
+    border-radius: 5px;
+    height: 95%;
+}
+.box2 img{
+    position: absolute;
+    top: -12%;
+    left: 20%;
+    width: 135%;
+    border-radius: 5px;
+    height: 95%;
+}
+.box3 img{
+    position: absolute;
+    top: -12%;
+    left: 20%;
+    width: 135%;
+    border-radius: 5px;
+    height: 95%;
+}
+
+.box1 h2{
+    padding-top: 65%;
+}
+.box2 h2{
+    padding-top: 65%;
+}
+.box3 h2{
+    padding-top: 65%;
+}
+.box1:hover{ 
+    background-color: blue;
+    color: white;
+    transition: 1s;
+    cursor: pointer;
+}
+.box2:hover{ 
+    background-color: blue;
+    color: white;
+    transition: 1s;
+    cursor: pointer;
+}
+.box3:hover{ 
+    background-color: blue;
+    color: white;
+    transition: 1s;
+    cursor: pointer;
+}
+
+
+
+
+.container-color{
+    background-image: url('./images/project-images/footer.png');
+    background-color: rgb(26, 26, 160);
+    height: 400px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    
+    
+}
+
+
+.container-row{
+    padding: 40px;
+    padding-top: 50px;
+}
+.icon2{
+    margin-top: 15px;
+    
+}
+.link a{
+    text-decoration: none;
+    color: white;
+}
+
+.form-control{
+    position: relative;
+}
+.button{
+    position: absolute;
+    margin-left: 12%;
+    margin-top: -32px;
+    border: none;
+    background-color: white;
+}
